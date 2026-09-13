@@ -2,9 +2,8 @@
 
 An agentic reviewer that catches compliance violations in Terraform pull requests before they're ever deployed.
 
-AuditBridge closes the gap between IaC scanners like Checkov — which flag problems but don't explain them to anyone outside engineering — and compliance platforms like Vanta or Drata — which explain problems to auditors but only after the resource is already live. Reasoning runs on an NVIDIA Nemotron model served through Nebius, grounded in a RAG index of compliance frameworks and live regulatory lookups via Tavily. Every finding ships with both the fixed Terraform code and a plain-language, control-mapped narrative a compliance officer can drop straight into an audit file.
+AuditBridge closes the gap between IaC scanners — which flag problems but don't explain them to anyone outside engineering — and compliance platforms which explain problems to auditors but only after the resource is already live. Reasoning runs on an NVIDIA Nemotron model served through Nebius, grounded in a RAG index of compliance frameworks and live regulatory lookups via Tavily. Every finding ships with both the fixed Terraform code and a plain-language, control-mapped narrative a compliance officer can drop straight into an audit file.
 
-Built for the Nebius x NVIDIA Global AI Hackathon.
 
 ## Status
 
@@ -25,7 +24,9 @@ Early scaffolding — see the build plan for the current milestone. Not yet func
 
 ## Setup
 
-Setup instructions will be filled in as each component lands (Nebius/Tavily credentials, Python environment, running the agent against `test-infra/terraform/`).
+Copy `.env.example` to `.env` and fill in your Nebius, Tavily, and LangSmith credentials — `auditbridge` loads `.env` automatically on import, so no further wiring is needed. LangSmith tracing (free tier) is enabled purely via env vars: once `LANGCHAIN_TRACING_V2` and `LANGCHAIN_API_KEY` are set, every LangChain/LangGraph run traces automatically at [smith.langchain.com](https://smith.langchain.com).
+
+Further setup instructions will be filled in as each component lands (Python environment, running the agent against `test-infra/terraform/`).
 
 ## License
 
