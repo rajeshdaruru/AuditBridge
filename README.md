@@ -20,7 +20,8 @@ Early scaffolding — see the build plan for the current milestone. Not yet func
 ## Repository layout
 
 - `src/auditbridge/` — application code (providers, agent graph, RAG index, GitHub automation).
-- `test-infra/terraform/` — a throwaway Terraform stack with deliberately planted misconfigurations, used as the target for local testing and for the PR-automation demo.
+
+The Terraform stack with deliberately planted misconfigurations, used as the target for local testing and the PR-automation demo, lives in a separate repo (`AuditBridge-test-infra`, not yet pushed to GitHub). Keeping it separate means the demo's PR automation opens real pull requests against a target repo, the way it would against any real user's infrastructure, instead of committing demo branches into this tool's own history.
 
 ## Setup
 
